@@ -12,11 +12,11 @@ interface SightCardData {
 }
 
 const sightCards: SightCardData[] = [
-  { kicker: '东江', h3: '东江 · 创客之乡', p: '糖巢临江而建,从老圩镇到省级标杆的起点。', pin: 'photos/pin-dongjiang.png' },
-  { kicker: '老圩镇', h3: '老圩镇的重生', p: '在原有圩镇肌理上活化,历史与新生在此对话。', pin: 'photos/pin-town.png' },
-  { kicker: '夜集', h3: '东江夜集', p: '夜市的灯亮起,青年、文创与烟火气在东江畔汇合。', pin: 'photos/pin-night.png' },
-  { kicker: '嫑艺术空间', h3: '把「不要」变成「要」', p: '央美背景创客主理,一座把艺术带给乡村的公共客厅。', pin: 'photos/pin-art.png' },
-  { kicker: '客家李记', h3: '三十年客家手艺', p: '一份经得起时间检验的手艺,在糖巢长出新的品牌溢价。', pin: 'photos/pin-food.png' },
+  { kicker: '东江', h3: '东江 · 创客之乡', p: '糖巢临江而建,从老圩镇到省级标杆的起点。', pin: './photos/pin-dongjiang.png' },
+  { kicker: '老圩镇', h3: '老圩镇的重生', p: '在原有圩镇肌理上活化,历史与新生在此对话。', pin: './photos/pin-town.png' },
+  { kicker: '夜集', h3: '东江夜集', p: '夜市的灯亮起,青年、文创与烟火气在东江畔汇合。', pin: './photos/pin-night.png' },
+  { kicker: '嫑艺术空间', h3: '把「不要」变成「要」', p: '央美背景创客主理,一座把艺术带给乡村的公共客厅。', pin: './photos/pin-art.png' },
+  { kicker: '客家李记', h3: '三十年客家手艺', p: '一份经得起时间检验的手艺,在糖巢长出新的品牌溢价。', pin: './photos/pin-food.png' },
 ]
 
 const facts = [
@@ -73,7 +73,7 @@ export default function About() {
         {/* Aerial close-up (frame two) */}
         <img
           className="about-frame2"
-          src="photos/gal-drone.jpg"
+          src="./photos/gal-drone.jpg"
           alt=""
         />
 

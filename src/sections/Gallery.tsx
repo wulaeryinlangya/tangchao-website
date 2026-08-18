@@ -37,21 +37,21 @@ const photos = [
 ]
 
 const items: GalleryItem[] = [
-  { src: 'photos/gal-art-1.jpg', caption: '嫑艺术空间 · 公共客厅' },
-  { src: 'photos/gal-center-1.jpg', caption: '糖巢创客中心 · 街景' },
-  { src: 'photos/gal-food-1.jpg', caption: '客家李记 · 三十年手艺' },
-  { src: 'photos/gal-village-1.jpg', caption: '南园古村 · 老圩场记忆' },
-  { src: 'photos/gal-drone.jpg', caption: '东江河畔 · 空中视角' },
-  { src: 'photos/gal-maker-1.jpg', caption: '糖巢创客空间 · 工作室' },
-  { src: 'photos/gal-art-2.jpg', caption: '嫑艺术空间 · 细节' },
-  { src: 'photos/gal-food-2.jpg', caption: '客家味道 · 餐桌' },
-  { src: 'photos/gal-maker-2.jpg', caption: '创客日常 · 灵感发生地' },
-  { src: 'photos/gal-center-2.jpg', caption: '创客中心 · 夜色' },
-  { src: 'photos/gal-village-2.jpg', caption: '南园古村 · 街角' },
+  { src: './photos/gal-art-1.jpg', caption: '嫑艺术空间 · 公共客厅' },
+  { src: './photos/gal-center-1.jpg', caption: '糖巢创客中心 · 街景' },
+  { src: './photos/gal-food-1.jpg', caption: '客家李记 · 三十年手艺' },
+  { src: './photos/gal-village-1.jpg', caption: '南园古村 · 老圩场记忆' },
+  { src: './photos/gal-drone.jpg', caption: '东江河畔 · 空中视角' },
+  { src: './photos/gal-maker-1.jpg', caption: '糖巢创客空间 · 工作室' },
+  { src: './photos/gal-art-2.jpg', caption: '嫑艺术空间 · 细节' },
+  { src: './photos/gal-food-2.jpg', caption: '客家味道 · 餐桌' },
+  { src: './photos/gal-maker-2.jpg', caption: '创客日常 · 灵感发生地' },
+  { src: './photos/gal-center-2.jpg', caption: '创客中心 · 夜色' },
+  { src: './photos/gal-village-2.jpg', caption: '南园古村 · 街角' },
 ]
 
-const row1 = photos.slice(0, 11).map((p) => `photos/${p}.jpg`)
-const row2 = photos.slice(11).map((p) => `photos/${p}.jpg`)
+const row1 = photos.slice(0, 11).map((p) => `./photos/${p}.jpg`)
+const row2 = photos.slice(11).map((p) => `./photos/${p}.jpg`)
 
 export default function Gallery() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)

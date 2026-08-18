@@ -18,7 +18,7 @@ interface Space {
 
 const spaces: Space[] = [
   {
-    photo: 'photos/space-art.jpg',
+    photo: './photos/space-art.jpg',
     name: '嫑艺术空间',
     tagline: '一座把「不要」变成「要」的艺术场域，央美背景创客主理',
     alt: '嫑艺术空间',
@@ -27,7 +27,7 @@ const spaces: Space[] = [
     kicker: '艺术空间',
   },
   {
-    photo: 'photos/space-food.jpg',
+    photo: './photos/space-food.jpg',
     name: '客家李记',
     tagline: '三十年传承手艺，被重新看见的客家味道',
     alt: '客家李记美食',
@@ -36,7 +36,7 @@ const spaces: Space[] = [
     kicker: '客家美食',
   },
   {
-    photo: 'photos/night.jpg',
+    photo: './photos/night.jpg',
     name: '南园古村',
     tagline: '一街之隔的古村肌理，与糖巢遥遥相望',
     alt: '南园古村',

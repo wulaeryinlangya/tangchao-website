@@ -17,14 +17,14 @@ interface Business {
 }
 
 const businesses: Business[] = [
-  { icon: <LightbulbIcon size={20} />, name: '创客', tagline: '让想法在乡村落地生长', detail: '企业进驻、创客大赛，河源首个乡村创客社区的孵化土壤。', photo: 'photos/biz-maker.jpg', gameId: 'maker' },
-  { icon: <GlobeIcon size={20} />, name: '研学', tagline: '在地文化里的行走课堂', detail: '「三下乡」「百千万突击队」在此实践，青年与乡村深度连接。', photo: 'photos/biz-study.jpg', gameId: 'study' },
-  { icon: <ImageIcon size={20} />, name: '文创', tagline: '河源地标 · 五县一区文创', detail: '河源地标积木、五县一区地图冰箱贴，把一座城带回家。', photo: 'photos/biz-craft.jpg', gameId: 'craft' },
-  { icon: <MovieIcon size={20} />, name: '体验', tagline: '手工坊 · 夜集市 · 沉浸打卡', detail: '制作馒头体验、夜集市、沉浸式打卡，来了就停不下来。', photo: 'photos/biz-exp.jpg', gameId: 'exp' },
-  { icon: <UsersIcon size={20} />, name: '美食', tagline: '客家李记 · 到吉窑鸡 · 文创雪糕', detail: '三十年客家手艺、窑鸡、文创雪糕，味蕾与记忆一起被唤醒。', photo: 'photos/biz-food.jpg', gameId: 'food' },
-  { icon: <LightbulbIcon size={20} />, name: '婚庆', tagline: '老圩场里的仪式感', detail: '在老圩场的肌理里办一场婚礼，历史感与仪式感并存。', photo: 'photos/biz-wedding.jpg', gameId: 'wedding' },
-  { icon: <ImageIcon size={20} />, name: '度假', tagline: '东江畔的慢生活', detail: '沿东江而居，把日子过成度假，适合放空与停留。', photo: 'photos/biz-holiday.jpg', gameId: 'holiday' },
-  { icon: <MovieIcon size={20} />, name: '街拍', tagline: '光影可出片的新街景', detail: '老建筑 + 新业态，处处是镜头里的出片角落。', photo: 'photos/biz-street.jpg', gameId: 'street' },
+  { icon: <LightbulbIcon size={20} />, name: '创客', tagline: '让想法在乡村落地生长', detail: '企业进驻、创客大赛，河源首个乡村创客社区的孵化土壤。', photo: './photos/biz-maker.jpg', gameId: 'maker' },
+  { icon: <GlobeIcon size={20} />, name: '研学', tagline: '在地文化里的行走课堂', detail: '「三下乡」「百千万突击队」在此实践，青年与乡村深度连接。', photo: './photos/biz-study.jpg', gameId: 'study' },
+  { icon: <ImageIcon size={20} />, name: '文创', tagline: '河源地标 · 五县一区文创', detail: '河源地标积木、五县一区地图冰箱贴，把一座城带回家。', photo: './photos/biz-craft.jpg', gameId: 'craft' },
+  { icon: <MovieIcon size={20} />, name: '体验', tagline: '手工坊 · 夜集市 · 沉浸打卡', detail: '制作馒头体验、夜集市、沉浸式打卡，来了就停不下来。', photo: './photos/biz-exp.jpg', gameId: 'exp' },
+  { icon: <UsersIcon size={20} />, name: '美食', tagline: '客家李记 · 到吉窑鸡 · 文创雪糕', detail: '三十年客家手艺、窑鸡、文创雪糕，味蕾与记忆一起被唤醒。', photo: './photos/biz-food.jpg', gameId: 'food' },
+  { icon: <LightbulbIcon size={20} />, name: '婚庆', tagline: '老圩场里的仪式感', detail: '在老圩场的肌理里办一场婚礼，历史感与仪式感并存。', photo: './photos/biz-wedding.jpg', gameId: 'wedding' },
+  { icon: <ImageIcon size={20} />, name: '度假', tagline: '东江畔的慢生活', detail: '沿东江而居，把日子过成度假，适合放空与停留。', photo: './photos/biz-holiday.jpg', gameId: 'holiday' },
+  { icon: <MovieIcon size={20} />, name: '街拍', tagline: '光影可出片的新街景', detail: '老建筑 + 新业态，处处是镜头里的出片角落。', photo: './photos/biz-street.jpg', gameId: 'street' },
 ]
 
 function FlipCard({ b, index, onPlay }: { b: Business; index: number; onPlay: () => void }) {

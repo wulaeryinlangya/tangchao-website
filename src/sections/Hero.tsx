@@ -46,10 +46,10 @@ export default function Hero() {
     <section className="surface-hero relative h-screen overflow-hidden">
       <CrossfadeBackground
         images={[
-          'photos/about-center.jpg',
-          'photos/night.jpg',
-          'photos/space-village.jpg',
-          'photos/river.jpg',
+          './photos/about-center.jpg',
+          './photos/night.jpg',
+          './photos/space-village.jpg',
+          './photos/river.jpg',
         ]}
         dim={0.5}
         interval={7000}

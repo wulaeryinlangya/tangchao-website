@@ -15,21 +15,21 @@ interface Creator {
 
 const creators: Creator[] = [
   {
-    photo: 'photos/creator-li.jpg',
+    photo: './photos/creator-li.jpg',
     name: '李渊',
     role: '客家李记 · 主理人',
     line: '三十年客家手艺，在糖巢被重新看见。',
     story: '从家族传承的客家味道出发，李渊把「客家李记」带进糖巢。一份经得起时间检验的手艺，在乡村创客社区的土壤里长出了新的品牌溢价。',
   },
   {
-    photo: 'photos/creator-wu.jpg',
+    photo: './photos/creator-wu.jpg',
     name: '吴文波',
     role: '嫑艺术空间 · 主理人',
     line: '把「不要」变成「要」的艺术场域。',
     story: '「嫑」字拆开是「不要」——吴文波用一座艺术空间，让更多人愿意留下来。这里是糖巢的公共客厅，也是艺术与乡村相遇的地方。',
   },
   {
-    photo: 'photos/creator-xu.jpg',
+    photo: './photos/creator-xu.jpg',
     name: '徐晨喻',
     role: '源·艺术空间 · 文创',
     line: '央美背景，把河源放进文创。',
