@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import SectionShell from '../components/SectionShell'
 import Reveal from '../components/Reveal'
-import CrossfadeBackground from '../components/CrossfadeBackground'
 import SectionGeometry from '../components/SectionGeometry'
+import BackgroundFx from '../components/BackgroundFx'
+import VideoBackdrop from '../components/VideoBackdrop'
 import GameModal from '../components/GameModal'
 import { ImageIcon, MovieIcon, LightbulbIcon, GlobeIcon, UsersIcon } from '../components/icons'
 
@@ -40,25 +41,25 @@ function FlipCard({ b, index, onPlay }: { b: Business; index: number; onPlay: ()
             </span>
           </div>
           <div className="p-6">
-            <div className="liquid-glass flex h-11 w-11 items-center justify-center rounded-[0.75rem] text-white/90">
+            <div className="liquid-glass flex h-11 w-11 items-center justify-center rounded-[0.75rem] text-ink/90">
               {b.icon}
             </div>
-            <div className="mt-3 font-heading text-3xl italic leading-none tracking-[-1px] text-white">
+            <div className="mt-3 font-heading text-3xl italic leading-none tracking-[-1px] text-ink">
               {b.name}
             </div>
-            <p className="mt-2 font-body text-sm font-light leading-snug text-white/75">{b.tagline}</p>
-            <p className="mt-3 font-body text-xs text-white/40">点击翻转 ›</p>
+            <p className="mt-2 font-body text-sm font-light leading-snug text-ink/75">{b.tagline}</p>
+            <p className="mt-3 font-body text-xs text-ink/40">点击翻转 ›</p>
           </div>
         </div>
 
-        <div className="flip-face flip-back rounded-[1.25rem] border border-[#d4a64a]/30 bg-[#0a1513] p-6">
+        <div className="flip-face flip-back rounded-[1.25rem] border border-honey/30 bg-paper-2 p-6">
           <div className="flex items-center justify-between">
-            <span className="font-heading text-2xl italic text-white">{b.name}</span>
-            <span className="font-body text-[10px] uppercase tracking-wider text-[#d4a64a]">
+            <span className="font-heading text-2xl italic text-ink">{b.name}</span>
+            <span className="font-body text-[10px] uppercase tracking-wider text-honey">
               业态 · {String(index + 1).padStart(2, '0')}
             </span>
           </div>
-          <p className="mt-4 font-body text-sm font-light leading-relaxed text-white/80">{b.detail}</p>
+          <p className="mt-4 font-body text-sm font-light leading-relaxed text-ink/80">{b.detail}</p>
           <div className="mt-auto pt-6">
             <button
               type="button"
@@ -66,11 +67,11 @@ function FlipCard({ b, index, onPlay }: { b: Business; index: number; onPlay: ()
                 e.stopPropagation()
                 onPlay()
               }}
-              className="press w-full rounded-full border border-[#d4a64a]/50 bg-[#d4a64a]/10 py-2.5 font-body text-sm text-[#d4a64a] hover:bg-[#d4a64a]/20"
+              className="press w-full rounded-full border border-honey/50 bg-honey/10 py-2.5 font-body text-sm text-honey hover:bg-honey/20"
             >
               🎮 玩个小游戏
             </button>
-            <p className="mt-3 text-center font-body text-xs text-white/40">点击返回 ›</p>
+            <p className="mt-3 text-center font-body text-xs text-ink/40">点击返回 ›</p>
           </div>
         </div>
       </div>
@@ -90,26 +91,16 @@ export default function Business() {
       index="04"
       eyebrow="// Business 八大业态"
       title="一街，八种玩法"
-      ghost="PLAYGROUND"
       hue={45}
       bg={
         <>
-          <div
-            className="geo-ring"
-            style={{ width: '46rem', height: '46rem', left: '-12rem', bottom: '-14rem' }}
+          <VideoBackdrop
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_001207_ec20d138-aa45-4b2b-ab8c-bdc71607f240.mp4"
+            scrim="linear-gradient(180deg, rgba(250,242,226,0.84), rgba(250,242,226,0.6) 45%, rgba(250,242,226,0.88))"
           />
+          <BackgroundFx type="geo" />
+          <div className="geo-ring" style={{ width: '46rem', height: '46rem', left: '-12rem', bottom: '-14rem' }} />
           <SectionGeometry type="orbit" theme="amber" />
-          <CrossfadeBackground
-            images={[
-              'photos/space-food.jpg',
-              'photos/gal-food-1.jpg',
-              'photos/maker-space.jpg',
-            ]}
-            dim={0.7}
-            interval={8000}
-            intensity={0.16}
-            filter="blur(6px) saturate(0.8)"
-          />
         </>
       }
     >

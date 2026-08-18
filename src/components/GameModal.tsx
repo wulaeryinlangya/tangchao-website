@@ -43,23 +43,23 @@ export default function GameModal({ title, gameId, photo, onClose }: GameModalPr
       aria-modal="true"
     >
       <div
-        className="flex h-[70vh] w-[90vw] max-w-2xl flex-col overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0a1513]/95"
+        className="flex h-[70vh] w-[90vw] max-w-2xl flex-col overflow-hidden rounded-[1.5rem] border border-rule bg-paper-2/95"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-rule px-6 py-4">
           <div>
-            <div className="font-heading text-xl italic text-white">{title}</div>
-            <div className="font-body text-[10px] uppercase tracking-wider text-[#d4a64a]">小游戏</div>
+            <div className="font-heading text-xl italic text-ink">{title}</div>
+            <div className="font-body text-[10px] uppercase tracking-wider text-honey">小游戏</div>
           </div>
           <div className="flex items-center gap-2">
             {score !== null && (
-              <span className="rounded-full border border-[#d4a64a]/40 px-3 py-1 font-body text-xs text-[#d4a64a]">
+              <span className="rounded-full border border-honey/40 px-3 py-1 font-body text-xs text-honey">
                 得分 {score}
               </span>
             )}
             <button
               onClick={onClose}
-              className="press flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 hover:text-white"
+              className="press flex h-9 w-9 items-center justify-center rounded-full border border-rule bg-paper-2 text-ink/70 hover:text-ink"
               aria-label="关闭游戏"
             >
               ×
@@ -71,20 +71,20 @@ export default function GameModal({ title, gameId, photo, onClose }: GameModalPr
           {Game ? (
             <Game key={key} photo={photo} onScore={(n) => setScore(n)} />
           ) : (
-            <div className="flex h-full items-center justify-center font-body text-white/60">加载中…</div>
+            <div className="flex h-full items-center justify-center font-body text-ink/60">加载中…</div>
           )}
         </div>
 
-        <div className="flex items-center justify-between border-t border-white/10 px-6 py-3">
+        <div className="flex items-center justify-between border-t border-rule px-6 py-3">
           <button
             onClick={() => { setKey((k) => k + 1); setScore(null) }}
-            className="press rounded-full border border-[#d4a64a]/40 px-4 py-1.5 font-body text-xs text-[#d4a64a] hover:bg-[#d4a64a]/10"
+            className="press rounded-full border border-honey/40 px-4 py-1.5 font-body text-xs text-honey hover:bg-honey/10"
           >
             重新挑战
           </button>
           <button
             onClick={onClose}
-            className="press rounded-full border border-white/15 px-4 py-1.5 font-body text-xs text-white/70 hover:bg-white/5"
+            className="press rounded-full border border-rule px-4 py-1.5 font-body text-xs text-ink/70 hover:bg-paper-2"
           >
             关闭
           </button>

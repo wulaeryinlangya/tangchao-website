@@ -5,7 +5,7 @@ interface SectionGeometryProps {
 }
 
 const THEME: Record<string, string> = {
-  white: '#ffffff',
+  white: 'rgba(67,42,22,0.4)',
   gold: 'rgba(212, 166, 74, 1)',
   amber: 'rgba(216, 140, 64, 1)',
   teal: 'rgba(40, 132, 130, 1)',
@@ -22,7 +22,7 @@ function Waves() {
           cy="1010"
           r={r}
           fill="none"
-          stroke="#ffffff"
+          stroke="rgba(67,42,22,0.4)"
           strokeOpacity="0.06"
         />
       ))}
@@ -65,7 +65,7 @@ function Network() {
             <line
               key={`${i}-${j}`}
               x1={n.x} y1={n.y} x2={m.x} y2={m.y}
-              stroke="#ffffff" strokeOpacity="0.05"
+              stroke="rgba(67,42,22,0.4)" strokeOpacity="0.05"
             />
           )
         }),
@@ -74,7 +74,7 @@ function Network() {
         <circle
           key={i}
           cx={n.x} cy={n.y} r="2.5"
-          fill={gold.has(i) ? 'rgba(212,166,74,0.7)' : '#ffffff'}
+          fill={gold.has(i) ? 'rgba(224,149,47,0.7)' : 'rgba(67,42,22,0.4)'}
           opacity={gold.has(i) ? 0.55 : 0.35}
         />
       ))}
@@ -88,7 +88,7 @@ function Orbit({ theme }: { theme: string }) {
     <>
       <ellipse
         cx="760" cy="470" rx="580" ry="320"
-        fill="none" stroke="#ffffff" strokeOpacity="0.06"
+        fill="none" stroke="rgba(67,42,22,0.4)" strokeOpacity="0.06"
         strokeDasharray="6 10"
       />
       {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
@@ -98,10 +98,10 @@ function Orbit({ theme }: { theme: string }) {
         const isGold = i === 1 || i === 4
         return (
           <g key={i}>
-            <line x1="760" y1="470" x2={x} y2={y} stroke="#ffffff" strokeOpacity="0.03" />
+            <line x1="760" y1="470" x2={x} y2={y} stroke="rgba(67,42,22,0.4)" strokeOpacity="0.03" />
             <circle
               cx={x} cy={y} r={isGold ? 6 : 4}
-              fill={isGold ? 'rgba(216,140,64,0.7)' : '#ffffff'}
+              fill={isGold ? 'rgba(224,149,47,0.7)' : 'rgba(67,42,22,0.4)'}
               opacity={isGold ? 0.5 : 0.25}
             />
           </g>
@@ -116,7 +116,7 @@ function Horizon() {
   return (
     <>
       {[600, 680, 760, 830, 900].map((y) => (
-        <line key={y} x1="0" y1={y} x2="1440" y2={y} stroke="#ffffff" strokeOpacity="0.05" />
+        <line key={y} x1="0" y1={y} x2="1440" y2={y} stroke="rgba(67,42,22,0.4)" strokeOpacity="0.05" />
       ))}
       {[
         { x: 120, y: 700, w: 180, h: 200 },
@@ -127,7 +127,7 @@ function Horizon() {
         <rect
           key={i}
           x={r.x} y={r.y} width={r.w} height={r.h}
-          fill="none" stroke="#ffffff" strokeOpacity="0.05"
+          fill="none" stroke="rgba(67,42,22,0.4)" strokeOpacity="0.05"
         />
       ))}
     </>
@@ -143,7 +143,7 @@ function Rays({ theme }: { theme: string }) {
         key={i}
         x1="1250" y1="120"
         x2={1250 + 600 * Math.cos(a)} y2={120 + 600 * Math.sin(a)}
-        stroke="#ffffff" strokeOpacity="0.04"
+        stroke="rgba(67,42,22,0.4)" strokeOpacity="0.04"
       />,
     )
   }
@@ -160,7 +160,7 @@ function Vertical() {
   const nodes = [240, 420, 600, 780]
   return (
     <>
-      <line x1="1320" y1="120" x2="1320" y2="860" stroke="#ffffff" strokeOpacity="0.07" strokeDasharray="4 10" />
+      <line x1="1320" y1="120" x2="1320" y2="860" stroke="rgba(67,42,22,0.4)" strokeOpacity="0.07" strokeDasharray="4 10" />
       {nodes.map((y) => (
         <g key={y}>
           <circle cx="1320" cy={y} r="4" fill="rgba(212,166,74,0.5)" />

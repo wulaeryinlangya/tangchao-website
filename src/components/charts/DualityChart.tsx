@@ -18,54 +18,54 @@ export default function DualityChart() {
   const [active, setActive] = useState<string | null>(null)
 
   return (
-    <div className="liquid-glass glass-hover rounded-[1.25rem] p-6">
+    <div className="console-panel glass-hover rounded-[1.25rem] p-6">
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <div className="mb-4 flex items-center gap-2">
-            <span className="font-heading text-xl italic text-white">微信</span>
-            <span className="font-body text-xs uppercase tracking-wider text-[#d4a64a]">官方叙事</span>
+            <span className="font-heading text-xl italic text-ink">微信</span>
+            <span className="font-body text-xs uppercase tracking-wider text-honey">官方叙事</span>
           </div>
           <div className="space-y-4">
             {wechat.map((w) => (
               <div key={w.label} className="cursor-pointer" onMouseEnter={() => setActive(`w-${w.label}`)} onMouseLeave={() => setActive(null)}>
                 <div className="mb-1 flex justify-between">
-                  <span className="font-body text-sm font-medium text-white/90">{w.label}</span>
-                  <span className="font-body text-xs text-[#d4a64a]">{w.value}</span>
+                  <span className="font-body text-sm font-medium text-ink/90">{w.label}</span>
+                  <span className="font-body text-xs text-honey">{w.value}</span>
                 </div>
-                <div className="h-4 overflow-hidden rounded-md bg-white/5">
+                <div className="h-4 overflow-hidden rounded-md bg-paper-2">
                   <div
-                    className="h-full rounded-md bg-gradient-to-r from-[#d4a64a]/80 to-[#8a6a2e]/70 transition-all duration-500"
+                    className="h-full rounded-md bg-gradient-to-r from-honey/80 to-gold/70 transition-all duration-500"
                     style={{ width: `${(w.value / MAX) * 100}%` }}
                   />
                 </div>
                 {active === `w-${w.label}` && (
-                  <p className="mt-1 font-body text-xs font-light text-white/60">{w.note}</p>
+                  <p className="mt-1 font-body text-xs font-light text-ink/60">{w.note}</p>
                 )}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+        <div className="border-t border-rule pt-6 md:border-l md:border-t-0 md:pl-6 md:pt-0">
           <div className="mb-4 flex items-center gap-2">
-            <span className="font-heading text-xl italic text-white">小红书</span>
-            <span className="font-body text-xs uppercase tracking-wider text-[#d4a64a]">用户实感</span>
+            <span className="font-heading text-xl italic text-ink">小红书</span>
+            <span className="font-body text-xs uppercase tracking-wider text-honey">用户实感</span>
           </div>
           <div className="space-y-4">
             {xhs.map((x) => (
               <div key={x.label} className="cursor-pointer" onMouseEnter={() => setActive(`x-${x.label}`)} onMouseLeave={() => setActive(null)}>
                 <div className="mb-1 flex justify-between">
-                  <span className="font-body text-sm font-medium text-white/90">{x.label}</span>
-                  <span className="font-body text-xs text-[#d4a64a]">{x.value}</span>
+                  <span className="font-body text-sm font-medium text-ink/90">{x.label}</span>
+                  <span className="font-body text-xs text-honey">{x.value}</span>
                 </div>
-                <div className="h-4 overflow-hidden rounded-md bg-white/5">
+                <div className="h-4 overflow-hidden rounded-md bg-paper-2">
                   <div
-                    className="h-full rounded-md bg-gradient-to-r from-white/40 to-white/10 transition-all duration-500"
+                    className="h-full rounded-md bg-gradient-to-r from-honey/55 to-honey/25 transition-all duration-500"
                     style={{ width: `${(x.value / MAX) * 100}%` }}
                   />
                 </div>
                 {active === `x-${x.label}` && (
-                  <p className="mt-1 font-body text-xs font-light text-white/60">{x.note}</p>
+                  <p className="mt-1 font-body text-xs font-light text-ink/60">{x.note}</p>
                 )}
               </div>
             ))}
@@ -73,11 +73,11 @@ export default function DualityChart() {
         </div>
       </div>
 
-      <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
-        <p className="font-body text-sm font-light text-white/85">
+      <div className="mt-5 flex items-center justify-between border-t border-rule pt-4">
+        <p className="font-body text-sm font-light text-ink/85">
           官方叙事 vs 用户实感 · 双平台互补
         </p>
-        <span className="font-body text-xs uppercase tracking-[0.15em] text-[#d4a64a]">Duality</span>
+        <span className="font-body text-xs uppercase tracking-[0.15em] text-honey">Duality</span>
       </div>
     </div>
   )

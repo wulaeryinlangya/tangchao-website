@@ -59,9 +59,9 @@ export default function MatchGame({ onScore }: MatchGameProps) {
   if (done) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-        <div className="font-heading text-5xl italic text-[#d4a64a]">✓</div>
-        <p className="font-body text-white/80">全部配对成功！用了 {tries} 次尝试</p>
-        <button className="press rounded-full border border-[#d4a64a]/50 px-5 py-2 text-[#d4a64a] hover:bg-[#d4a64a]/10" onClick={() => location.reload()}>
+        <div className="font-heading text-5xl italic text-honey">✓</div>
+        <p className="font-body text-ink/80">全部配对成功！用了 {tries} 次尝试</p>
+        <button className="press rounded-full border border-honey/50 px-5 py-2 text-honey hover:bg-honey/10" onClick={() => location.reload()}>
           再来一次
         </button>
       </div>
@@ -70,7 +70,7 @@ export default function MatchGame({ onScore }: MatchGameProps) {
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 p-4">
-      <p className="font-body text-sm text-white/60">翻开两张卡，找到同一业态的配对 · 已配对 {matched.length / 2}/{pairs.length}</p>
+      <p className="font-body text-sm text-ink/60">翻开两张卡，找到同一业态的配对 · 已配对 {matched.length / 2}/{pairs.length}</p>
       <div className="grid grid-cols-4 gap-3">
         {deck.map((c) => {
           const isOpen = open.includes(c.id) || matched.includes(c.id)
@@ -82,8 +82,8 @@ export default function MatchGame({ onScore }: MatchGameProps) {
                 isOpen
                   ? matched.includes(c.id)
                     ? 'border-green-400/50 bg-green-400/10'
-                    : 'border-[#d4a64a]/50 bg-white/10'
-                  : 'border-white/15 bg-white/5 hover:border-white/40'
+                    : 'border-honey/50 bg-paper-2'
+                  : 'border-rule bg-paper-2 hover:border-honey/60'
               }`}
             >
               {isOpen ? c.icon : '?'}

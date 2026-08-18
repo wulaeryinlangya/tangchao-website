@@ -57,9 +57,9 @@ export default function PuzzleGame({ photo, onScore }: PuzzleGameProps) {
   if (done) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-        <div className="font-heading text-4xl italic text-[#d4a64a]">拼好了！</div>
-        <p className="font-body text-white/70">用了 {moves} 步</p>
-        <button className="press rounded-full border border-[#d4a64a]/50 px-5 py-2 text-[#d4a64a] hover:bg-[#d4a64a]/10" onClick={() => { setOrder(shuffled()); setMoves(0); setDone(false) }}>
+        <div className="font-heading text-4xl italic text-honey">拼好了！</div>
+        <p className="font-body text-ink/70">用了 {moves} 步</p>
+        <button className="press rounded-full border border-honey/50 px-5 py-2 text-honey hover:bg-honey/10" onClick={() => { setOrder(shuffled()); setMoves(0); setDone(false) }}>
           再来一局
         </button>
       </div>
@@ -68,7 +68,7 @@ export default function PuzzleGame({ photo, onScore }: PuzzleGameProps) {
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 p-4">
-      <p className="font-body text-sm text-white/60">点击与空白相邻的格子，拼回创客园区 · 已走 {moves} 步</p>
+      <p className="font-body text-sm text-ink/60">点击与空白相邻的格子，拼回创客园区 · 已走 {moves} 步</p>
       <div className="grid grid-cols-3 gap-1.5" style={{ width: 270, height: 270 }}>
         {order.map((v, i) => {
           const row = Math.floor(v / 3)
@@ -77,7 +77,7 @@ export default function PuzzleGame({ photo, onScore }: PuzzleGameProps) {
             <button
               key={i}
               onClick={() => click(i)}
-              className={`press overflow-hidden rounded-lg border border-white/10 ${v === 8 ? 'bg-white/5' : ''}`}
+              className={`press overflow-hidden rounded-lg border border-rule ${v === 8 ? 'bg-paper-2' : ''}`}
               style={{ width: 86, height: 86 }}
             >
               {v !== 8 && (

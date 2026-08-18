@@ -1,7 +1,8 @@
 import SectionShell from '../components/SectionShell'
 import Reveal from '../components/Reveal'
-import CrossfadeBackground from '../components/CrossfadeBackground'
 import SectionGeometry from '../components/SectionGeometry'
+import BackgroundFx from '../components/BackgroundFx'
+import VideoBackdrop from '../components/VideoBackdrop'
 
 interface Milestone {
   period: string
@@ -60,32 +61,17 @@ export default function Timeline() {
       index="07"
       eyebrow="// Timeline 发展历程"
       title="两年，从圩镇到标杆"
-      ghost="TIMELINE"
-      ghostPosition="top-left"
       hue={190}
       bg={
         <>
-          <div
-            className="geo-ring"
-            style={{ width: '34rem', height: '34rem', right: '-10rem', top: '30%' }}
-          />
+          <VideoBackdrop src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_001207_ec20d138-aa45-4b2b-ab8c-bdc71607f240.mp4" />
+          <BackgroundFx type="dots" />
           <SectionGeometry type="vertical" theme="gold" />
-          <CrossfadeBackground
-            images={[
-              'photos/gal-village-1.jpg',
-              'photos/gal-village-2.jpg',
-              'photos/gal-drone.jpg',
-            ]}
-            dim={0.7}
-            interval={8000}
-            intensity={0.17}
-            filter="blur(5px)"
-          />
         </>
       }
     >
       <div className="mt-12 flex flex-1 flex-col justify-center">
-        <div className="relative ml-8 border-l border-white/15 lg:mx-auto lg:w-full lg:max-w-5xl lg:border-l-0">
+        <div className="relative ml-8 border-l border-rule lg:mx-auto lg:w-full lg:max-w-5xl lg:border-l-0">
           {/* center line with ruler ticks on desktop */}
           <div className="absolute left-0 top-0 hidden h-full w-px lg:left-1/2 lg:block lg:-translate-x-1/2 timeline-ruler" />
 
@@ -99,11 +85,11 @@ export default function Timeline() {
             >
               {/* node marker */}
               <span
-                className={`absolute top-2 flex h-7 w-7 items-center justify-center rounded-full border border-[#d4a64a]/60 bg-[#0a1513] ${
+                className={`absolute top-2 flex h-7 w-7 items-center justify-center rounded-full border border-honey/60 bg-paper-2 ${
                   i % 2 === 1 ? 'left-[-16px] lg:left-[-14px]' : 'left-[-16px] lg:left-auto lg:right-[-14px]'
                 }`}
               >
-                <span className="h-2.5 w-2.5 rounded-full bg-[#d4a64a]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-honey" />
               </span>
 
               <div
@@ -116,23 +102,23 @@ export default function Timeline() {
                 </div>
                 <div className={`flex-1 ${i % 2 === 1 ? '' : 'lg:text-right'}`}>
                   <div className={`flex flex-wrap items-center gap-2 ${i % 2 === 1 ? '' : 'lg:justify-end'}`}>
-                    <span className="font-body text-xs uppercase tracking-[0.2em] text-[#d4a64a]">
+                    <span className="font-body text-xs uppercase tracking-[0.2em] text-honey">
                       {m.period}
                     </span>
-                    <span className="rounded-full border border-[#d4a64a]/40 px-2 py-0.5 font-body text-[10px] text-[#d4a64a]">
+                    <span className="rounded-full border border-honey/40 px-2 py-0.5 font-body text-[10px] text-honey">
                       {m.honor}
                     </span>
-                    <span className="rounded-full bg-white/5 px-2 py-0.5 font-body text-[10px] uppercase tracking-wider text-white/50">
+                    <span className="rounded-full bg-paper-2 px-2 py-0.5 font-body text-[10px] uppercase tracking-wider text-ink/50">
                       {m.phase}
                     </span>
                   </div>
-                  <h3 className="mt-2 font-heading text-2xl italic leading-none tracking-[-1px] text-white md:text-3xl">
+                  <h3 className="mt-2 font-heading text-2xl italic leading-none tracking-[-1px] text-ink md:text-3xl">
                     {m.title}
                   </h3>
-                  <p className="mt-3 font-body text-sm font-light leading-snug text-white/80">
+                  <p className="mt-3 font-body text-sm font-light leading-snug text-ink/80">
                     {m.desc}
                   </p>
-                  <div className="mt-3 font-body text-sm font-medium text-[#d4a64a]/80">
+                  <div className="mt-3 font-body text-sm font-medium text-honey/80">
                     {m.stat}
                   </div>
                 </div>

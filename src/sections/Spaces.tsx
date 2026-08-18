@@ -1,8 +1,9 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import SectionShell from '../components/SectionShell'
-import CrossfadeBackground from '../components/CrossfadeBackground'
 import SectionGeometry from '../components/SectionGeometry'
+import BackgroundFx from '../components/BackgroundFx'
+import VideoBackdrop from '../components/VideoBackdrop'
 import TiltCard from '../components/TiltCard'
 
 interface Space {
@@ -70,17 +71,17 @@ function SpaceStackCard({ space, index, total }: { space: Space; index: number; 
           <div className="stack-caption absolute bottom-0 left-0 right-0 p-6">
             <div className="liquid-glass rounded-2xl px-5 py-4">
               <div className="flex items-center justify-between gap-4">
-                <h3 className="font-heading text-2xl italic leading-none tracking-[-1px] text-white md:text-3xl">
+                <h3 className="font-heading text-2xl italic leading-none tracking-[-1px] text-ink md:text-3xl">
                   {space.name}
                 </h3>
-                <span className="shrink-0 font-body text-[10px] uppercase tracking-wider text-[#d4a64a]">
+                <span className="shrink-0 font-body text-[10px] uppercase tracking-wider text-honey">
                   {space.kicker}
                 </span>
               </div>
-              <p className="mt-2 font-body text-sm font-light leading-snug text-white/80">
+              <p className="mt-2 font-body text-sm font-light leading-snug text-ink/80">
                 {space.tagline}
               </p>
-              <p className="stack-detail mt-2 font-body text-sm font-light leading-snug text-white/70">
+              <p className="stack-detail mt-2 font-body text-sm font-light leading-snug text-ink/70">
                 {space.detail}
               </p>
             </div>
@@ -99,21 +100,14 @@ export default function Spaces() {
       index="05"
       eyebrow="// Spaces 特色空间"
       title="值得停留的地方"
-      ghost="SPACES"
       hue={165}
       bg={
         <>
-          <CrossfadeBackground
-            images={[
-              'photos/space-village.jpg',
-              'photos/space-art.jpg',
-              'photos/space-food.jpg',
-            ]}
-            dim={0.7}
-            interval={8000}
-            intensity={0.26}
-            filter="blur(2px)"
+          <VideoBackdrop
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_001207_ec20d138-aa45-4b2b-ab8c-bdc71607f240.mp4"
+            scrim="linear-gradient(180deg, rgba(238,244,238,0.84), rgba(238,244,238,0.6) 45%, rgba(238,244,238,0.88))"
           />
+          <BackgroundFx type="orbs" dim />
           <SectionGeometry type="horizon" />
         </>
       }

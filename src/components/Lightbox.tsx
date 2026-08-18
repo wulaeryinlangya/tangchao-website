@@ -49,7 +49,7 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Lightbox
       aria-modal="true"
     >
       <button
-        className="absolute right-5 top-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-xl text-white/80 backdrop-blur-md transition hover:bg-white/20 hover:text-white"
+        className="absolute right-5 top-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-rule bg-paper-2 text-xl text-ink/80 backdrop-blur-md transition hover:bg-paper-2 hover:text-ink"
         onClick={onClose}
         aria-label="关闭"
       >
@@ -57,7 +57,7 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Lightbox
       </button>
 
       <button
-        className="absolute left-3 top-1/2 z-30 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-2xl text-white/80 backdrop-blur-md transition hover:bg-white/20 hover:text-white md:left-8"
+        className="absolute left-3 top-1/2 z-30 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-rule bg-paper-2 text-2xl text-ink/80 backdrop-blur-md transition hover:bg-paper-2 hover:text-ink md:left-8"
         onClick={(e) => {
           e.stopPropagation()
           prev()
@@ -68,7 +68,7 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Lightbox
       </button>
 
       <button
-        className="absolute right-3 top-1/2 z-30 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-2xl text-white/80 backdrop-blur-md transition hover:bg-white/20 hover:text-white md:right-8"
+        className="absolute right-3 top-1/2 z-30 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-rule bg-paper-2 text-2xl text-ink/80 backdrop-blur-md transition hover:bg-paper-2 hover:text-ink md:right-8"
         onClick={(e) => {
           e.stopPropagation()
           next()
@@ -92,7 +92,7 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Lightbox
           alt={item.caption}
           className="lightbox-fade relative max-h-[65vh] max-w-[80vw] rounded-2xl object-contain"
         />
-        <p className="mt-4 text-center font-body text-sm font-light text-white/80">
+        <p className="mt-4 text-center font-body text-sm font-light text-ink/80">
           {item.caption} · {index + 1}/{items.length}
         </p>
       </div>
@@ -109,7 +109,7 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Lightbox
             className={`h-14 w-20 shrink-0 overflow-hidden rounded-lg border transition ${
               i === index
                 ? 'border-white/40 ring-1 ring-white/30'
-                : 'border-white/10 opacity-60 hover:opacity-100'
+                : 'border-rule opacity-60 hover:opacity-100'
             }`}
             aria-label={`跳到：${t.caption}`}
           >

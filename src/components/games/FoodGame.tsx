@@ -46,9 +46,9 @@ export default function FoodGame({ onScore }: FoodGameProps) {
   if (done) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-        <div className="font-heading text-5xl italic text-white">{score}</div>
-        <p className="font-body text-white/70">{score === goodCount ? '全对！这些才是糖巢的客家美味～' : `挑对了 ${score} 样客家美味`}</p>
-        <button className="press rounded-full border border-[#d4a64a]/50 px-5 py-2 text-[#d4a64a] hover:bg-[#d4a64a]/10" onClick={() => { setPool([...foods].sort(() => Math.random() - 0.5)); setPicked([]); setDone(false); setScore(0) }}>
+        <div className="font-heading text-5xl italic text-ink">{score}</div>
+        <p className="font-body text-ink/70">{score === goodCount ? '全对！这些才是糖巢的客家美味～' : `挑对了 ${score} 样客家美味`}</p>
+        <button className="press rounded-full border border-honey/50 px-5 py-2 text-honey hover:bg-honey/10" onClick={() => { setPool([...foods].sort(() => Math.random() - 0.5)); setPicked([]); setDone(false); setScore(0) }}>
           再玩一次
         </button>
       </div>
@@ -57,7 +57,7 @@ export default function FoodGame({ onScore }: FoodGameProps) {
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 p-4">
-      <p className="font-body text-sm text-white/60">点出糖巢的客家美食（找出全部 {goodCount} 样）</p>
+      <p className="font-body text-sm text-ink/60">点出糖巢的客家美食（找出全部 {goodCount} 样）</p>
       <div className="grid grid-cols-4 gap-3">
         {pool.map((f, i) => (
           <button
@@ -68,11 +68,11 @@ export default function FoodGame({ onScore }: FoodGameProps) {
                 ? f.good
                   ? 'border-green-400/50 bg-green-400/10'
                   : 'border-red-400/50 bg-red-400/10'
-                : 'border-white/15 bg-white/5 hover:border-white/40'
+                : 'border-rule bg-paper-2 hover:border-honey/60'
             }`}
           >
             <span>{f.emoji}</span>
-            <span className="text-[10px] text-white/70">{f.name}</span>
+            <span className="text-[10px] text-ink/70">{f.name}</span>
           </button>
         ))}
       </div>

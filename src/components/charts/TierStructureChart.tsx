@@ -11,7 +11,7 @@ export default function TierStructureChart() {
   const hit = tiers.find((t) => t.key === active)
 
   return (
-    <div className="liquid-glass glass-hover rounded-[1.25rem] p-6">
+    <div className="console-panel glass-hover rounded-[1.25rem] p-6">
       <div className="flex flex-col gap-6 md:flex-row md:items-center">
         <svg viewBox="0 0 320 320" className="h-64 w-64 shrink-0">
           {tiers.map((t) => (
@@ -24,7 +24,7 @@ export default function TierStructureChart() {
               <circle
                 cx="160" cy="160" r={t.r}
                 fill="none"
-                stroke={active === t.key ? '#d4a64a' : 'rgba(212,166,74,0.35)'}
+                stroke={active === t.key ? '#e0952f' : 'rgba(212,166,74,0.4)'}
                 strokeWidth={active === t.key ? 3 : 1.5}
                 strokeDasharray={active === t.key ? 'none' : '2 4'}
                 opacity={active === null || active === t.key ? 1 : 0.35}
@@ -32,11 +32,11 @@ export default function TierStructureChart() {
               />
               <circle cx="160" cy="160" r={t.r - 3} fill="transparent" />
               {active === t.key && (
-                <circle cx="160" cy={160 - t.r} r="5" fill="#d4a64a" />
+                <circle cx="160" cy={160 - t.r} r="5" fill="#e0952f" />
               )}
             </g>
           ))}
-          <circle cx="160" cy="160" r="26" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+          <circle cx="160" cy="160" r="26" fill="none" stroke="rgba(185,130,31,0.3)" strokeWidth="1" />
         </svg>
 
         <div className="flex-1 space-y-3">
@@ -48,20 +48,20 @@ export default function TierStructureChart() {
               onMouseLeave={() => setActive(null)}
               className={`block w-full rounded-xl border px-4 py-3 text-left transition ${
                 active === t.key
-                  ? 'border-[#d4a64a]/50 bg-[#d4a64a]/10'
-                  : 'border-white/10 hover:border-white/25'
+                  ? 'border-honey/50 bg-honey/10'
+                  : 'border-rule hover:border-[rgba(67,42,22,0.3)]'
               }`}
             >
               <div className="flex items-center gap-3">
-                <span className="font-body text-sm font-medium text-white">
+                <span className="font-body text-sm font-medium text-ink">
                   {t.label}
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider text-[#d4a64a]">
+                <span className="font-body text-xs uppercase tracking-wider text-honey">
                   {t.sub}
                 </span>
               </div>
               {active === t.key && (
-                <p className="mt-2 font-body text-xs font-light leading-snug text-white/70">
+                <p className="mt-2 font-body text-xs font-light leading-snug text-ink/70">
                   {t.desc}
                 </p>
               )}
@@ -70,12 +70,12 @@ export default function TierStructureChart() {
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
-        <p className="font-body text-sm font-light text-white/85">
+      <div className="mt-4 flex items-center justify-between border-t border-rule pt-4">
+        <p className="font-body text-sm font-light text-ink/85">
           三层结构互相支撑：官方权威 × 用户真实 × 高校联动
         </p>
         {hit && (
-          <span className="shrink-0 font-body text-xs uppercase tracking-[0.15em] text-[#d4a64a]">
+          <span className="shrink-0 font-body text-xs uppercase tracking-[0.15em] text-honey">
             {hit.label}
           </span>
         )}

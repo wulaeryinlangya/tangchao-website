@@ -39,9 +39,9 @@ export default function QuizGame({ onScore }: QuizGameProps) {
   if (done) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-        <div className="font-heading text-5xl italic text-white">{score}/{questions.length}</div>
-        <p className="font-body text-white/70">{score === questions.length ? '满分！你对糖巢了如指掌！' : '答对 ' + score + ' 题，再试试～'}</p>
-        <button className="press rounded-full border border-[#d4a64a]/50 px-5 py-2 text-[#d4a64a] hover:bg-[#d4a64a]/10" onClick={() => { setIdx(0); setScore(0); setPicked(null); setDone(false) }}>
+        <div className="font-heading text-5xl italic text-ink">{score}/{questions.length}</div>
+        <p className="font-body text-ink/70">{score === questions.length ? '满分！你对糖巢了如指掌！' : '答对 ' + score + ' 题，再试试～'}</p>
+        <button className="press rounded-full border border-honey/50 px-5 py-2 text-honey hover:bg-honey/10" onClick={() => { setIdx(0); setScore(0); setPicked(null); setDone(false) }}>
           重新挑战
         </button>
       </div>
@@ -51,8 +51,8 @@ export default function QuizGame({ onScore }: QuizGameProps) {
   return (
     <div className="flex h-full flex-col justify-center gap-6 p-4">
       <div className="text-center">
-        <span className="font-body text-xs text-white/50">第 {idx + 1}/{questions.length} 题</span>
-        <h4 className="mt-1 font-heading text-2xl italic text-white">{q.q}</h4>
+        <span className="font-body text-xs text-ink/50">第 {idx + 1}/{questions.length} 题</span>
+        <h4 className="mt-1 font-heading text-2xl italic text-ink">{q.q}</h4>
       </div>
       <div className="flex flex-col gap-3">
         {q.options.map((opt, i) => (
@@ -61,17 +61,17 @@ export default function QuizGame({ onScore }: QuizGameProps) {
             onClick={() => pick(i)}
             className={`press rounded-xl border px-4 py-3 text-left font-body transition ${
               picked === null
-                ? 'border-white/15 hover:border-[#d4a64a]/50'
+                ? 'border-rule hover:border-honey/50'
                 : picked === i
                   ? i === q.answer
                     ? 'border-green-400/60 bg-green-400/10'
                     : 'border-red-400/60 bg-red-400/10'
                   : i === q.answer
                     ? 'border-green-400/60 bg-green-400/10'
-                    : 'border-white/10 opacity-50'
+                    : 'border-rule opacity-50'
             }`}
           >
-            <span className="text-white/90">{opt}</span>
+            <span className="text-ink/90">{opt}</span>
           </button>
         ))}
       </div>

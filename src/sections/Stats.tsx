@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import SectionShell from '../components/SectionShell'
 import Reveal from '../components/Reveal'
-import CrossfadeBackground from '../components/CrossfadeBackground'
-import SectionGeometry from '../components/SectionGeometry'
+import GridLines from '../components/GridLines'
+import VideoBackdrop from '../components/VideoBackdrop'
 import { useReveal } from '../components/useReveal'
 
 type ChartType = 'ring' | 'bar' | 'line' | 'gauge'
@@ -79,13 +79,13 @@ function RingChart({ p }: { p: number }) {
   const pct = 0.72
   return (
     <svg viewBox="0 0 80 80" className="h-20 w-20">
-      <circle cx="40" cy="40" r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="5" />
+      <circle cx="40" cy="40" r={r} fill="none" stroke="rgba(67,42,22,0.12)" strokeWidth="5" />
       <circle
-        cx="40" cy="40" r={r} fill="none" stroke="#d4a64a" strokeWidth="5"
+        cx="40" cy="40" r={r} fill="none" stroke="#e0952f" strokeWidth="5"
         strokeDasharray={`${c * pct * p} ${c}`} strokeLinecap="round"
         transform="rotate(-90 40 40)"
       />
-      <text x="40" y="46" textAnchor="middle" fontSize="13" fill="rgba(255,255,255,0.8)">{Math.round(72 * p)}%</text>
+      <text x="40" y="46" textAnchor="middle" fontSize="13" fill="rgba(67,42,22,0.8)">{Math.round(72 * p)}%</text>
     </svg>
   )
 }
@@ -100,7 +100,7 @@ function BarChart({ p }: { p: number }) {
           <rect
             key={i}
             x={i * 10 + 1} y={80 - h} width="8" height={h} rx="1.5"
-            fill={i === 5 ? '#d4a64a' : 'rgba(255,255,255,0.3)'}
+            fill={i === 5 ? '#e0952f' : 'rgba(185,130,31,0.35)'}
           />
         )
       })}
@@ -137,7 +137,7 @@ function GaugeChart({ p }: { p: number }) {
     <svg viewBox="0 0 80 60" className="h-15 w-20">
       <path
         d="M 10 50 A 30 30 0 1 1 70 50" fill="none"
-        stroke="rgba(255,255,255,0.1)" strokeWidth="6" strokeLinecap="round"
+        stroke="rgba(67,42,22,0.12)" strokeWidth="6" strokeLinecap="round"
       />
       <path
         d="M 10 50 A 30 30 0 1 1 70 50" fill="none"
@@ -170,45 +170,37 @@ export default function Stats() {
       index="02"
       eyebrow="// Stats 核心数据"
       title="一座社区的成绩单"
-      ghost="DATA"
-      hue={165}
       bg={
         <>
-          <CrossfadeBackground
-            images={[
-              'photos/about-center.jpg',
-              'photos/river.jpg',
-              'photos/gal-center-2.jpg',
-            ]}
-            dim={0.7}
-            interval={8000}
-            intensity={0.15}
-            filter="blur(8px)"
+          <VideoBackdrop
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_001207_ec20d138-aa45-4b2b-ab8c-bdc71607f240.mp4"
+            scrim="linear-gradient(180deg, rgba(238,243,232,0.84), rgba(238,243,232,0.6) 45%, rgba(238,243,232,0.88))"
           />
-          <SectionGeometry type="dots" theme="gold" />
+          <GridLines />
+          <div className="console-glow" style={{ width: '34rem', height: '34rem', right: '-10rem', top: '-8rem' }} />
         </>
       }
     >
       <div className="mt-12 grid flex-1 grid-cols-1 content-center gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={(i % 4) * 90}>
-            <div className="liquid-glass glass-hover rounded-[1.25rem] p-6">
+            <div className="console-panel glass-hover rounded-[1.25rem] p-6">
+              <span className="console-bracket console-bracket--tl" aria-hidden="true" />
+              <span className="console-bracket console-bracket--br" aria-hidden="true" />
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <span className="font-body text-[10px] uppercase tracking-[0.2em] text-[#d4a64a]">
-                    {s.badge}
-                  </span>
-                  <div className="mt-2 font-heading text-4xl italic leading-none tracking-[-1px] text-white md:text-5xl">
+                  <span className="console-tag">[ {s.badge.toUpperCase()} ]</span>
+                  <div className="mt-2 font-heading text-4xl italic leading-none tracking-[-1px] text-ink md:text-5xl">
                     <CountUp value={s.value} suffix={s.suffix} />
-                    <span className="ml-1 align-middle text-sm text-[#d4a64a]">↑</span>
+                    <span className="ml-1 align-middle text-sm text-honey">↑</span>
                   </div>
                 </div>
                 <div className="shrink-0 opacity-80">
                   <AnimatedChart type={s.chart} />
                 </div>
               </div>
-              <div className="mt-3 font-body text-sm font-medium text-white/90">{s.label}</div>
-              <div className="mt-1 font-body text-xs font-light leading-snug text-white/60">
+              <div className="mt-3 font-body text-sm font-medium text-ink/90">{s.label}</div>
+              <div className="mt-1 font-body text-xs font-light leading-snug text-ink/60">
                 {s.note}
               </div>
             </div>

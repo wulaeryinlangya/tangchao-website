@@ -5,13 +5,15 @@ interface CrossfadeBackgroundProps {
   className?: string
   /** Auto-advance interval in ms; omit to disable auto-advance. */
   interval?: number
-  /** Dark-overlay alpha 0–1. */
+  /** Overlay alpha 0–1. */
   dim?: number
   /** Max layer opacity 0–1. */
   intensity?: number
   switcher?: boolean
   switcherLabel?: string[]
   filter?: string
+  /** 'dark' = warm-sepia overlay (white text on top), 'light' = cream wash (ink text). */
+  tone?: 'dark' | 'light'
 }
 
 export default function CrossfadeBackground({
@@ -23,6 +25,7 @@ export default function CrossfadeBackground({
   switcher = false,
   switcherLabel,
   filter,
+  tone = 'dark',
 }: CrossfadeBackgroundProps) {
   const [active, setActive] = useState(0)
   const [loaded, setLoaded] = useState<Record<number, boolean>>({})
@@ -54,7 +57,10 @@ export default function CrossfadeBackground({
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: `linear-gradient(180deg, rgba(9,17,15,${dim}), rgba(9,17,15,${Math.min(1, dim + 0.12)}))`,
+          background:
+            tone === 'dark'
+              ? `linear-gradient(180deg, rgba(54,32,12,${dim}), rgba(54,32,12,${Math.min(1, dim + 0.12)}))`
+              : `linear-gradient(180deg, oklch(0.955 0.02 75 / ${dim}), oklch(0.9 0.02 75 / ${Math.min(1, dim + 0.12)}))`,
         }}
       />
 
@@ -67,8 +73,8 @@ export default function CrossfadeBackground({
               onClick={() => setActive(i)}
               className={`rounded-full px-3 py-1 font-body text-xs transition ${
                 active === i
-                  ? 'bg-white/20 text-white underline decoration-white underline-offset-4'
-                  : 'text-white/40 hover:text-white'
+                  ? 'bg-paper-2 text-ink underline decoration-white underline-offset-4'
+                  : 'text-ink/40 hover:text-ink'
               }`}
             >
               {switcherLabel?.[i] ?? String(i + 1)}

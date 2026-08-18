@@ -16,8 +16,8 @@ export default function ChartPanel({ src, caption, alt = caption }: ChartPanelPr
         />
       </div>
       <div className="mt-4 flex items-center justify-between gap-4">
-        <p className="font-body text-sm font-light text-white/85">{caption}</p>
-        <span className="shrink-0 font-body text-xs uppercase tracking-[0.15em] text-[#d4a64a]">
+        <p className="font-body text-sm font-light text-ink/85">{caption}</p>
+        <span className="shrink-0 font-body text-xs uppercase tracking-[0.15em] text-honey">
           数据 · 2023–2026
         </span>
       </div>

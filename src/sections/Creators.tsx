@@ -2,8 +2,9 @@ import SectionShell from '../components/SectionShell'
 import FadingImage from '../components/FadingImage'
 import Reveal from '../components/Reveal'
 import TiltCard from '../components/TiltCard'
-import CrossfadeBackground from '../components/CrossfadeBackground'
 import SectionGeometry from '../components/SectionGeometry'
+import BackgroundFx from '../components/BackgroundFx'
+import VideoBackdrop from '../components/VideoBackdrop'
 interface Creator {
   photo: string
   name: string
@@ -44,22 +45,15 @@ export default function Creators() {
       index="06"
       eyebrow="// Creators 创客风采"
       title="乡村里的手艺人"
-      ghost="MAKERS"
       hue={30}
       bg={
         <>
-          <SectionGeometry type="rays" theme="orange" />
-          <CrossfadeBackground
-            images={[
-              'photos/creator-wu.jpg',
-              'photos/creator-li.jpg',
-              'photos/creator-xu.jpg',
-            ]}
-            dim={0.7}
-            interval={8000}
-            intensity={0.16}
-            filter="blur(8px)"
+          <VideoBackdrop
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_001207_ec20d138-aa45-4b2b-ab8c-bdc71607f240.mp4"
+            scrim="linear-gradient(180deg, rgba(252,242,232,0.84), rgba(252,242,232,0.6) 45%, rgba(252,242,232,0.88))"
           />
+          <BackgroundFx type="geo" dim />
+          <SectionGeometry type="rays" theme="orange" />
         </>
       }
     >
@@ -76,17 +70,17 @@ export default function Creators() {
                   />
                 </div>
                 <div className="liquid-glass p-6">
-                  <div className="font-body text-xs uppercase tracking-[0.2em] text-white/50">
+                  <div className="font-body text-xs uppercase tracking-[0.2em] text-ink/50">
                     {c.role}
                   </div>
-                  <h3 className="mt-2 font-heading text-2xl italic leading-none tracking-[-1px] text-white md:text-3xl">
+                  <h3 className="mt-2 font-heading text-2xl italic leading-none tracking-[-1px] text-ink md:text-3xl">
                     {c.name}
                   </h3>
-                  <p className="mt-3 font-body text-sm font-light leading-snug text-white/85">
+                  <p className="mt-3 font-body text-sm font-light leading-snug text-ink/85">
                     {c.line}
                   </p>
                   <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-48 group-hover:opacity-100">
-                    <p className="mt-3 border-t border-white/10 pt-3 font-body text-sm font-light leading-snug text-white/70">
+                    <p className="mt-3 border-t border-rule pt-3 font-body text-sm font-light leading-snug text-ink/70">
                       {c.story}
                     </p>
                   </div>

@@ -2,7 +2,8 @@ import { useState } from 'react'
 import SectionShell from '../components/SectionShell'
 import Tabs from '../components/Tabs'
 import Reveal from '../components/Reveal'
-import SectionGeometry from '../components/SectionGeometry'
+import GridLines from '../components/GridLines'
+import VideoBackdrop from '../components/VideoBackdrop'
 import TierStructureChart from '../components/charts/TierStructureChart'
 import MediaMatrixChart from '../components/charts/MediaMatrixChart'
 import TimelineChart from '../components/charts/TimelineChart'
@@ -54,24 +55,30 @@ export default function Data() {
       index="03"
       eyebrow="// Research 调研数据"
       title="数据里的糖巢传播"
-      ghost="DATA"
-      hue={165}
       bg={
         <>
-          <SectionGeometry type="network" />
+          <VideoBackdrop
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_001207_ec20d138-aa45-4b2b-ab8c-bdc71607f240.mp4"
+            scrim="linear-gradient(180deg, rgba(236,244,234,0.84), rgba(236,244,234,0.6) 45%, rgba(236,244,234,0.88))"
+          />
+          <GridLines />
+          <div className="console-glow" style={{ width: '30rem', height: '30rem', left: '-9rem', bottom: '-6rem' }} />
         </>
       }
     >
       <Reveal delay={250}>
         <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {metrics.map((m) => (
-            <div key={m.label} className="liquid-glass glass-hover rounded-[1.25rem] p-6">
-              <div className="font-heading text-4xl italic leading-none tracking-[-1px] text-white md:text-5xl">
+          {metrics.map((m, i) => (
+            <div key={m.label} className="console-panel glass-hover rounded-[1.25rem] p-6">
+              <span className="console-bracket console-bracket--tl" aria-hidden="true" />
+              <span className="console-bracket console-bracket--br" aria-hidden="true" />
+              <span className="console-tag">[ M{String(i + 1).padStart(2, '0')} ]</span>
+              <div className="mt-2 font-heading text-4xl italic leading-none tracking-[-1px] text-ink md:text-5xl">
                 {m.value}
-                <span className="ml-1 text-2xl text-[#d4a64a]">{m.unit}</span>
+                <span className="ml-1 text-2xl text-honey">{m.unit}</span>
               </div>
-              <div className="mt-3 font-body text-sm font-medium text-white/90">{m.label}</div>
-              <div className="mt-1 font-body text-xs font-light leading-snug text-white/60">{m.note}</div>
+              <div className="mt-3 font-body text-sm font-medium text-ink/90">{m.label}</div>
+              <div className="mt-1 font-body text-xs font-light leading-snug text-ink/60">{m.note}</div>
             </div>
           ))}
         </div>

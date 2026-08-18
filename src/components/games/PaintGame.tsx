@@ -23,9 +23,9 @@ export default function PaintGame({ photo, onScore }: PaintGameProps) {
   if (done) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-        <div className="font-heading text-4xl italic text-[#d4a64a]">完成！</div>
-        <p className="font-body text-white/70">你为糖巢街景调出了一抹专属色彩</p>
-        <button className="press rounded-full border border-[#d4a64a]/50 px-5 py-2 text-[#d4a64a] hover:bg-[#d4a64a]/10" onClick={() => { setDone(false); setSel(0) }}>
+        <div className="font-heading text-4xl italic text-honey">完成！</div>
+        <p className="font-body text-ink/70">你为糖巢街景调出了一抹专属色彩</p>
+        <button className="press rounded-full border border-honey/50 px-5 py-2 text-honey hover:bg-honey/10" onClick={() => { setDone(false); setSel(0) }}>
           换个配色
         </button>
       </div>
@@ -34,15 +34,15 @@ export default function PaintGame({ photo, onScore }: PaintGameProps) {
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-5 p-4">
-      <p className="font-body text-sm text-white/60">为街拍照挑选一种光影配色，看看不同滤镜下的糖巢</p>
-      <div className="relative h-56 w-80 overflow-hidden rounded-xl border border-white/10">
+      <p className="font-body text-sm text-ink/60">为街拍照挑选一种光影配色，看看不同滤镜下的糖巢</p>
+      <div className="relative h-56 w-80 overflow-hidden rounded-xl border border-rule">
         <img
           src={photo}
           alt="街拍原图"
           className="h-full w-full object-cover"
           style={{ filter: `saturate(1.3) hue-rotate(${sel * 30}deg)` }}
         />
-        <span className="absolute bottom-2 left-2 rounded-full bg-black/60 px-3 py-1 font-body text-xs text-white/80">
+        <span className="absolute bottom-2 left-2 rounded-full bg-black/60 px-3 py-1 font-body text-xs text-ink/80">
           {palettes[sel].name}
         </span>
       </div>
@@ -57,7 +57,7 @@ export default function PaintGame({ photo, onScore }: PaintGameProps) {
           />
         ))}
       </div>
-      <button onClick={apply} className="press rounded-full border border-[#d4a64a]/50 px-6 py-2 text-[#d4a64a] hover:bg-[#d4a64a]/10">
+      <button onClick={apply} className="press rounded-full border border-honey/50 px-6 py-2 text-honey hover:bg-honey/10">
         完成调色
       </button>
     </div>

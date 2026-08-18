@@ -17,13 +17,13 @@ const marqueeItems = ['创客', '研学', '文创', '体验', '美食', '婚庆'
 
 export default function App() {
   return (
-    <main className="surface-dark">
+    <main className="surface-light">
       <ScrollProgress />
       <CursorGlow />
       <Hero />
       <Marquee
         items={marqueeItems}
-        className="relative z-10 border-y border-white/10 bg-[#0a1412] py-5"
+        className="relative z-10 border-y border-rule bg-paper-1 py-5"
       />
       <About />
       <Stats />

@@ -29,9 +29,9 @@ export default function FindGame({ photo, onScore }: FindGameProps) {
   if (done) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-        <div className="font-heading text-4xl italic text-[#d4a64a]">3 处都找到了！</div>
-        <p className="font-body text-white/70">你的观察力很敏锐～</p>
-        <button className="press rounded-full border border-[#d4a64a]/50 px-5 py-2 text-[#d4a64a] hover:bg-[#d4a64a]/10" onClick={() => { setFound([]); setDone(false) }}>
+        <div className="font-heading text-4xl italic text-honey">3 处都找到了！</div>
+        <p className="font-body text-ink/70">你的观察力很敏锐～</p>
+        <button className="press rounded-full border border-honey/50 px-5 py-2 text-honey hover:bg-honey/10" onClick={() => { setFound([]); setDone(false) }}>
           再看一次
         </button>
       </div>
@@ -40,19 +40,19 @@ export default function FindGame({ photo, onScore }: FindGameProps) {
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 p-4">
-      <p className="font-body text-sm text-white/60">对比两幅度假风景，找出 {diffs.length} 处不同（点击右侧差异处）</p>
+      <p className="font-body text-sm text-ink/60">对比两幅度假风景，找出 {diffs.length} 处不同（点击右侧差异处）</p>
       <div className="grid grid-cols-2 gap-4">
-        <div className="relative h-56 w-64 overflow-hidden rounded-xl border border-white/10">
+        <div className="relative h-56 w-64 overflow-hidden rounded-xl border border-rule">
           <img src={photo} alt="原图" className="h-full w-full object-cover" />
         </div>
-        <div className="relative h-56 w-64 overflow-hidden rounded-xl border border-white/15">
+        <div className="relative h-56 w-64 overflow-hidden rounded-xl border border-rule">
           <img src={photo} alt="变化后" className="h-full w-full object-cover" />
           {diffs.map((d, i) =>
             found.includes(i) ? null : (
               <button
                 key={i}
                 onClick={() => click(i)}
-                className="absolute h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#d4a64a]/70"
+                className="absolute h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-honey/70"
                 style={{ left: `${d.x}%`, top: `${d.y}%` }}
                 aria-label={d.label}
               />
@@ -67,7 +67,7 @@ export default function FindGame({ photo, onScore }: FindGameProps) {
           )}
         </div>
       </div>
-      <p className="font-body text-xs text-white/40">已找到 {found.length}/{diffs.length}</p>
+      <p className="font-body text-xs text-ink/40">已找到 {found.length}/{diffs.length}</p>
     </div>
   )
 }

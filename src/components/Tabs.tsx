@@ -28,10 +28,10 @@ export default function Tabs({ items, activeId, onChange, className = '' }: Tabs
               setInternal(item.id)
               onChange(item.id)
             }}
-            className={`press rounded-full px-4 py-2 font-body text-sm font-medium transition ${
+            className={`press rounded-full border px-4 py-2 font-body text-sm font-medium transition ${
               isActive
-                ? 'bg-white text-black'
-                : 'liquid-glass text-white/80 hover:text-white'
+                ? 'border-honey bg-honey text-[#0d2e24]'
+                : 'border-[rgba(67,42,22,0.16)] text-ink/70 hover:border-[rgba(67,42,22,0.4)] hover:text-ink'
             }`}
           >
             {item.label}

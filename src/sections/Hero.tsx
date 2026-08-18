@@ -3,6 +3,7 @@ import BlurText from '../components/BlurText'
 import Reveal from '../components/Reveal'
 import MagneticButton from '../components/MagneticButton'
 import { useActiveSection } from '../components/useActiveSection'
+import { useEffect, useState } from 'react'
 import { ArrowUpRight, ClockIcon, PlayIcon, UsersIcon } from '../components/icons'
 
 const navLinks = [
@@ -26,9 +27,23 @@ const honors = [
 
 export default function Hero() {
   const active = useActiveSection(sectionIds)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > window.innerHeight * 0.6)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const navText = scrolled ? 'text-ink hover:text-ink/80' : 'text-white/90 hover:text-white'
+  const navActive = scrolled ? 'bg-ink/10 text-ink' : 'bg-white/10 text-white'
+  const ctaText = scrolled ? 'text-ink' : 'text-white'
 
   return (
-    <section className="surface-dark relative h-screen overflow-hidden">
+    <section className="surface-hero relative h-screen overflow-hidden">
       <CrossfadeBackground
         images={[
           'photos/about-center.jpg',
@@ -43,9 +58,9 @@ export default function Hero() {
       />
 
       <div className="relative z-10 flex h-full flex-col">
-        <nav className="fixed left-0 right-0 top-4 z-50 flex items-center justify-between px-8 lg:px-16">
+        <nav className={`fixed left-0 right-0 top-4 z-50 flex items-center justify-between px-8 lg:px-16 ${scrolled ? '' : ''}`}>
           <div className="liquid-glass flex h-12 w-12 items-center justify-center rounded-full">
-            <span className="font-heading text-2xl italic">糖</span>
+            <span className={`font-heading text-2xl italic ${scrolled ? 'text-ink' : 'text-white'}`}>糖</span>
           </div>
 
           <div className="liquid-glass hidden items-center rounded-full px-1.5 py-1.5 md:flex">
@@ -56,7 +71,7 @@ export default function Hero() {
                   key={link.href}
                   href={link.href}
                   className={`rounded-full px-3 py-2 font-body text-sm font-medium transition ${
-                    isActive ? 'bg-white/10 text-white' : 'text-white/90 hover:text-white'
+                    isActive ? navActive : navText
                   }`}
                 >
                   {link.label}
@@ -65,7 +80,7 @@ export default function Hero() {
             })}
             <a
               href="#contact"
-              className="liquid-glass-strong flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium text-white"
+              className={`liquid-glass-strong flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium ${ctaText}`}
             >
               联系我们
               <ArrowUpRight size={16} />
@@ -78,7 +93,7 @@ export default function Hero() {
         <div className="flex flex-1 flex-col items-center justify-center px-4 pt-24 text-center">
           <Reveal delay={400}>
             <div className="liquid-glass flex items-center gap-3 rounded-full px-4 py-2">
-              <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-black">
+              <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
                 Est. 2023
               </span>
               <span className="font-body text-sm font-light text-white/90">

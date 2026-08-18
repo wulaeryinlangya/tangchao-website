@@ -3,6 +3,8 @@ import SectionShell from '../components/SectionShell'
 import PhotoMarquee from '../components/PhotoMarquee'
 import Lightbox from '../components/Lightbox'
 import Reveal from '../components/Reveal'
+import BackgroundFx from '../components/BackgroundFx'
+import VideoBackdrop from '../components/VideoBackdrop'
 
 interface GalleryItem {
   src: string
@@ -65,14 +67,15 @@ export default function Gallery() {
       index="08"
       eyebrow="// Gallery 影像糖巢"
       title="光影里的糖巢"
-      ghost="GALLERY"
       hue={165}
       bg={
         <>
-          <div
-            className="geo-ring"
-            style={{ width: '30rem', height: '30rem', left: '-8rem', top: '20%' }}
+          <div className="bg-wash" />
+          <VideoBackdrop
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_001207_ec20d138-aa45-4b2b-ab8c-bdc71607f240.mp4"
+            scrim="linear-gradient(180deg, rgba(250,244,233,0.8), rgba(250,244,233,0.55) 45%, rgba(250,244,233,0.85))"
           />
+          <BackgroundFx type="orbs" dim />
         </>
       }
     >
@@ -81,13 +84,13 @@ export default function Gallery() {
       </Reveal>
 
       <Reveal delay={150} className="mt-4 flex flex-col items-center gap-4 pb-4">
-        <p className="font-body text-sm font-light text-white/70">
+        <p className="font-body text-sm font-light text-ink/70">
           东江岸边 · 22 个光影瞬间
         </p>
         <button
           type="button"
           onClick={open}
-          className="press liquid-glass rounded-full px-6 py-3 font-body text-sm font-medium text-white/90 transition hover:text-white"
+          className="press liquid-glass rounded-full px-6 py-3 font-body text-sm font-medium text-ink/90 transition hover:text-ink"
         >
           查看全部照片
         </button>
