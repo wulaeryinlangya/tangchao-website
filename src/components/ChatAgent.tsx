@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { suggestions } from '../data/faq'
-import { matchFaq } from '../utils/faqMatch'
+import { sendChatMessage } from '../api/chat'
 import { ArrowUpRight } from './icons'
 
 interface Message {
@@ -17,6 +17,7 @@ export default function ChatAgent() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([welcome])
   const [input, setInput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const bodyRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -25,16 +26,43 @@ export default function ChatAgent() {
     }
   }, [messages, open])
 
-  const ask = (q: string) => {
+  const ask = async (q: string) => {
     const trimmed = q.trim()
-    if (!trimmed) return
-    const { answer } = matchFaq(trimmed)
-    setMessages((m) => [...m, { role: 'user', text: trimmed }, { role: 'ai', text: answer }])
+    if (!trimmed || isLoading) return
+
+    // Add user message
+    const userMessage: Message = { role: 'user', text: trimmed }
+    setMessages((m) => [...m, userMessage])
     setInput('')
+    setIsLoading(true)
+
+    try {
+      // Call API with conversation history
+      const aiResponse = await sendChatMessage(trimmed, messages)
+
+      // Remove Markdown formatting (bold, italic, etc.)
+      const cleanText = aiResponse
+        .replace(/\*\*(.+?)\*\*/g, '$1')  // Remove bold **text**
+        .replace(/\*(.+?)\*/g, '$1')      // Remove italic *text*
+        .replace(/`(.+?)`/g, '$1')        // Remove code `text`
+
+      const aiMessage: Message = { role: 'ai', text: cleanText }
+      setMessages((m) => [...m, aiMessage])
+    } catch (error) {
+      // Show error as AI message
+      const errorMessage: Message = {
+        role: 'ai',
+        text: '抱歉，我现在遇到了一些问题，请稍后再试。你也可以关注公众号「糖巢农文旅」或实地参访了解更多信息。',
+      }
+      setMessages((m) => [...m, errorMessage])
+      console.error('Chat error:', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') ask(input)
+    if (e.key === 'Enter' && !isLoading) ask(input)
   }
 
   return (
@@ -68,10 +96,32 @@ export default function ChatAgent() {
                       : 'rounded-bl-sm border border-rule bg-paper-2 text-ink/90'
                   }`}
                 >
-                  {m.text}
+                  <div
+                    style={{
+                      whiteSpace: 'pre-wrap',
+                      fontVariantLigatures: 'none',
+                      fontFeatureSettings: '"liga" 0, "clig" 0'
+                    }}
+                  >
+                    {m.text}
+                  </div>
                 </div>
               </div>
             ))}
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="max-w-[85%] rounded-2xl rounded-bl-sm border border-rule bg-paper-2 px-4 py-3 font-body text-sm font-light leading-relaxed text-ink/90">
+                  <span className="inline-flex items-center gap-1">
+                    思考中
+                    <span className="inline-flex gap-0.5">
+                      <span className="animate-bounce" style={{ animationDelay: '0ms' }}>.</span>
+                      <span className="animate-bounce" style={{ animationDelay: '150ms' }}>.</span>
+                      <span className="animate-bounce" style={{ animationDelay: '300ms' }}>.</span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
 
           {messages.length <= 1 && (
@@ -95,12 +145,14 @@ export default function ChatAgent() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={onKeyDown}
               placeholder="输入你的问题…"
-              className="min-w-0 flex-1 rounded-full border border-rule bg-paper-2 px-4 py-2 font-body text-sm text-ink placeholder-ink-faint outline-none focus:border-honey/50"
+              disabled={isLoading}
+              className="min-w-0 flex-1 rounded-full border border-rule bg-paper-2 px-4 py-2 font-body text-sm text-ink placeholder-ink-faint outline-none focus:border-honey/50 disabled:opacity-50"
             />
             <button
               type="button"
               onClick={() => ask(input)}
-              className="press flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-honey text-white hover:bg-honey/90"
+              disabled={isLoading}
+              className="press flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-honey text-white hover:bg-honey/90 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="发送"
             >
               <ArrowUpRight size={16} />

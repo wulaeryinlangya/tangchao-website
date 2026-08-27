@@ -3,3 +3,6 @@ dist
 *.local
 .DS_Store
 .claude/
+server/.env
+server/node_modules
+.env.local
