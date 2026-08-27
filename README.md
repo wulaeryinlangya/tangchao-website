@@ -1,6 +1,22 @@
 # 糖巢创客社区网站
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwulaeryinlangya%2Ftangchao-website&env=DEEPSEEK_API_KEY,DEEPSEEK_BASE_URL&envDescription=DeepSeek%20API%20配置&envLink=https%3A%2F%2Fgithub.com%2Fwulaeryinlangya%2Ftangchao-website%2Fblob%2Fmain%2FVERCEL-DEPLOY.md)
+
 糖巢创客社区官方网站，采用 React + Vite 构建，集成了基于 DeepSeek API 的智能对话系统。
+
+## 🚀 快速部署
+
+**一键部署到 Vercel：**
+
+1. 点击上方 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwulaeryinlangya%2Ftangchao-website&env=DEEPSEEK_API_KEY,DEEPSEEK_BASE_URL&envDescription=DeepSeek%20API%20配置) 按钮
+2. 登录 Vercel（可用 GitHub 账号）
+3. 设置环境变量（会自动提示）：
+   - `DEEPSEEK_API_KEY`: 你的 DeepSeek API Key
+   - `DEEPSEEK_BASE_URL`: `https://api.deepseek.com/anthropic`
+4. 点击 Deploy，等待 1-2 分钟完成！
+
+详细部署指南：[VERCEL-DEPLOY.md](./VERCEL-DEPLOY.md)
+
 
 ## 技术栈
 
