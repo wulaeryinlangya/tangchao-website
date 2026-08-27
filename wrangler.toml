@@ -2,11 +2,5 @@ name = "tangchao-website"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
-[build]
-command = "npm install && npm run build"
-publish = "dist"
+pages_build_output_dir = "dist"
 
-# Cloudflare Workers for API
-[[routes]]
-pattern = "/api/*"
-script = "api-worker"

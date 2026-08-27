@@ -38,9 +38,10 @@
 |--------|-----|
 | **Project name** | `tangchao-website`（或自定义） |
 | **Production branch** | `main` |
-| **Framework preset** | `Vite` |
+| **Framework preset** | `None`（不要选 Vite） |
 | **Build command** | `npm install && npm run build` |
 | **Build output directory** | `dist` |
+| **Root directory** | `/`（留空或填 /） |
 
 ### 步骤 5：设置环境变量（重要！）
 
@@ -50,11 +51,11 @@
 |--------|-----|--------|
 | `DEEPSEEK_API_KEY` | `sk-8a7f829d9986435a92720bc2cb3c8141` | Production |
 | `DEEPSEEK_BASE_URL` | `https://api.deepseek.com/anthropic` | Production |
-| `NODE_VERSION` | `18` | Production |
 
 **⚠️ 注意：**
 - 这些环境变量会被 Cloudflare Workers 使用
 - 确保选择 **"Production"** 作用域
+- **不需要设置 NODE_VERSION**，Cloudflare 会自动检测 .node-version 文件
 
 ### 步骤 6：开始部署
 
