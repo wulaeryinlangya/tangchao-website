@@ -1,0 +1,14 @@
+name = "tangchao-website"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "npm install && npm run build"
+publish = "dist"
+
+# Cloudflare Workers for API
+[[routes]]
+pattern = "/api/*"
+script = "api-worker"
+
+[env.production]
+NODE_VERSION = "18"
