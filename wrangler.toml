@@ -11,4 +11,4 @@ pattern = "/api/*"
 script = "api-worker"
 
 [env.production]
-NODE_VERSION = "18"
+NODE_VERSION = "20"
